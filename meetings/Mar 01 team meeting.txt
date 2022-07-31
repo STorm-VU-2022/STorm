@@ -1,0 +1,7 @@
+18:30 - Meeting start, reviewing results of teacher interviews
+19:35 - Reviewing use cases
+19:49 - Invitation link vs. invitation code
+		Decided: use invitation code
+19:55 - Reviewing (non-)functional requirements
+20:10 - Creating presentation outline
+20:32 - Meeting end

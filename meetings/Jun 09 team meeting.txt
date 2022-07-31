@@ -1,0 +1,9 @@
+18:37 - Meeting start
+
+Decided:
+	1. Hide all buttons that are related to following feature in the front-end
+	2. Remove short description and replace it with full description with filter
+	3. Delete "methodic groups" ir "group create" branches
+	4. In relation 'participates_in' add 'is_rejected' and 'request_date' attributes
+	
+19:10 - Meeting end

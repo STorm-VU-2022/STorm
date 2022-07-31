@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block title %}
+    Material upload
+{% endblock %}
+{% load i18n %}
+
+{% block contents %}
+
+{% if error %}
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong>Publication information did not validate:</strong> Please ensure all mandatory fields are filled and file size limits are not exceeded.
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+{% endif %}
+
+
+  <main class="main">
+      <form method="POST" class="post-form" enctype="multipart/form-data">
+          {% csrf_token %}
+    <div class="container mt-2 mb-2">
+      <div class="row d-flex justify-content-center">
+        <div class="col-md-12">
+          <div class="card p-3 py-4" style="border: 2px solid #E8F2FF; box-shadow: 0 8px 17px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)">
+            <span class="badge badge-lg badge-pill badge-secondary mb-4">
+              <h1>{% trans "Material Upload" %}</h1>
+                {% if user.is_authenticated %}
+<!--                    <h2>Welcome, {{user.full_name}}</h2>-->
+            </span>
+                  <div class="input-group mb-3">
+                {{form.title}}
+            </div>
+            <div class="row mb-4">
+              <div class="col-md-3">
+                {{form.subject}}
+              </div>
+              <div class="col-md-2">
+                  {{form.student_year}}
+              </div>
+              <div class="col-md-3">
+                {{form.language}}
+              </div>
+              <div class="col-md-3">
+                <select name="related_to_group" class="selectpicker" title="Group" placeholder="Group"
+                        data-live-search="true" data-live-search-placeholder="Search for a group"
+                        id="id_related_to_group">
+                  {% for group in available_groups %}
+                    <option value="{{ group.pk }}">{{ group.name }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+              <div class="col-md-1">
+                <label class="d-block">{% trans "Public" %}</label>
+                <label class="toggle-switch">
+                  {{form.is_public}}
+                  <span class="toggle-switch-slider rounded-circle"></span>
+                </label>
+              </div>
+            </div>
+            <div>
+                {{form.media|as_crispy_field}}
+                {{form.photo|as_crispy_field}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container mt-4">
+      <div class="row d-flex justify-content-center">
+        <div class="col-md-5">
+          <div class="card p-4" style="border: 2px solid #E8F2FF; box-shadow: 0 8px 17px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)">
+            <span class="badge badge-lg badge-pill badge-secondary mb-4">
+              <h2>{% trans "Short Description" %}</h2>
+            </span>
+            <div class="form-group">
+              {{form.short_description}}
+            </div>
+          </div>
+        </div>
+        <div class="col-md-7">
+          <div class="card p-4" style="border: 2px solid #E8F2FF; box-shadow: 0 8px 17px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)">
+            <span class="badge badge-lg badge-pill badge-secondary mb-4">
+              <h2>{% trans "Full Description" %}</h2>
+            </span>
+            <div class="form-group">
+              {{form.description}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container mt-4">
+      <div class="row d-flex justify-content-center">
+        <div class="col-md-12">
+          <div class="card p-3 py-4" style="border: 2px solid #E8F2FF; box-shadow: 0 8px 17px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)">
+            <div class="col-lg-13">
+              <button type="submit" class="btn btn-block btn-primary">
+                <p class="h2 text-white">{% trans "Submit" %}</p>
+              </button>
+                  {% else %}
+                    <h2>{% trans "You must login in order to upload!" %}</h2>
+                    {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> <br> <br>
+       </form>
+  </main>
+
+  {% endblock %}

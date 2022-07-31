@@ -1,0 +1,7 @@
+17:00 - Meeting start, reviewing Jira
+17:08 - Decided to use MySQL and Django
+17:15 - Reviewing updated ER model
+18:07 - Reviewing preliminary design
+18:25 - Looking bootstrap templates
+18:35 - Writing (non-)functional requirements
+19:22 - Meeting end

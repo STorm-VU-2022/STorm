@@ -1,0 +1,13 @@
+14:00 - Meeting start
+14:05 - Reviewing 1 idea regarding website design
+	Decided to disregard this idea due to complexity
+14:11 - Recap of current progress
+	Decided to move Andrej's project to VCS?
+14:40 - Thinking what to do with data
+
+15:03 - 15:54 - Lunch break
+
+15:54 - Discussion with Aras regarding Django
+	- talking about VENV and possible problems
+
+17:20 - End

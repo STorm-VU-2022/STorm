@@ -1,0 +1,3 @@
+10:20-11:30 Editing user and group profile ui layout
+12:20-13:40 Designing material page ui layout and fixing navbar
+13:40-15:20 Fixing mistakes in form pages

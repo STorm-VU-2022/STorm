@@ -1,0 +1,37 @@
+{% load static %}
+<nav class="navbar navbar-expand-md navbar-dark py-1 bg-primary">
+    <div class="container">
+        <!--        <img src="../assets/images/logo.png" style="width: 50px;">-->
+        <img src="{% static 'images/logo.png' %}" style="width: 50px;">
+        <a class="navbar-brand" href="{% url 'home' %}"><strong>STorm</strong></a>
+        <button class="navbar-toggler" type="button" data-action="offcanvas-open" data-target="#navbar_main"
+                aria-controls="navbar_main" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse offcanvas-collapse" id="navbar_main">
+            <ul class="navbar-nav ml-auto align-items-lg-center">
+              <h6 class="dropdown-header font-weight-600 d-lg-none px-0"></h6>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbar_main_dropdown_1" role="button"
+                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span
+                    class="text-white">Pages</span></a>
+                <div class="dropdown-menu" aria-labelledby="navbar_1_dropdown_1">
+                  <a class="dropdown-item" href="{% url 'home' %}">Homepage</a>
+                  <a class="dropdown-item" href="{% url 'login' %}">Login</a>
+                  <a class="dropdown-item" href="{% url 'profile' %}">Profile</a>
+                  <a class="dropdown-item" href="{% url 'profile-group' %}">Group Profile</a>
+                  <a class="dropdown-item" href="{% url 'create-group' %}">Group Creation</a>
+                  <a class="dropdown-item" href="{% url 'browse-publications' %}">Material Search</a>
+                  <a class="dropdown-item" href="{% url 'material-upload' %}">Material Upload</a>
+                  <a class="dropdown-item" href="{% url 'material-info' %}">Material Info</a>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a href="{% url 'login' %}" class="nav-link d-lg-none">Sign In</a>
+                <a href="{% url 'login' %}" class="btn btn-sm bg-white d-none d-lg-inline-flex">Sign In</a> 
+              </li>
+              </li>
+            </ul>
+          </div>
+    </div>
+</nav>

@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% block title %}Invite Teacher{% endblock %}
+{% load i18n %}
+<!-- group-invite-user -->
+{% block contents %}
+{% if error_message %}
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>You cannot invite this user to group "{{ error_message }}":</strong> looks like you are not the owner or such group was deleted.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+{% endif %}
+
+{% if success_message %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>You successfully invited {{ user }} to group "{{ group }}".</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+{% endif %}
+
+{% if already_invited_error %}
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>{{ user }} is already invited to group "{{ already_invited_error }}".</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+{% endif %}
+
+<div class="container mt-4 mb-4">
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-12">
+            <div class="card p-3 py-4"
+                 style="border: 2px solid #E8F2FF; box-shadow: 0 8px 17px 0 #E8F2FF, 0 6px 20px 0 rgba(0,0,0,0.19)">
+                <div class="text-center">
+                    <span class="badge badge-lg badge-pill badge-secondary mb-4">
+                        <h1>{% trans "Invite" %} {{ user }} {% trans "to your group" %}</h1>
+                    </span>
+                    <h4>Select group you want to invite {{ user }}:</h4>
+                    <br>
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="col-md-12">
+                            <select class="selectpicker" name="group_selection">
+                                {% for group in groups %}
+                                <option>{{ group }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <br>
+                        <div class="col-md-12">
+                            <button type="submit" class="btn btn-block btn-primary">
+                                <p class="h2 text-white">{% trans "Submit" %}</p>
+                            </button>
+                        </div>
+                    </form>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<br>
+{% endblock %}

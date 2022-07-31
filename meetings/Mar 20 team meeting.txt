@@ -1,0 +1,11 @@
+12:01 - Meeting start
+12:10 - Planning PBL presentation
+	Decided:	
+		1. Andrej and Aras re-model ER model and create objects; Vidmantas decides what part of it to include
+12:53 - Reviewing notes of the meeting with supervisor
+	Decided:
+		1. Try to implement OAUTH
+		2. Shift from organisations to hodical groups
+		3. Postpone law questions
+		4. Badges - only downloads, uploads, likes and no of followers
+13:10 - Meeting end

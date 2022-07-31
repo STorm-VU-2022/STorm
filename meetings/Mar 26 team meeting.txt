@@ -1,0 +1,8 @@
+14:00 Meeting start
+14:45 Meeting end
+
+Done:
+	- Reviewed updated functional and non-functional requirements
+	- Created new tasks
+	- Established clarity between team members regarding full-stack frameworks (especially Django)
+	- Reviewed possibilities of integration Python scripts to front-end

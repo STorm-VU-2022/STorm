@@ -1,0 +1,28 @@
+{% load i18n %}
+
+{% load static %}
+<footer class="mt-auto pt-5 pb-1 footer footer-dark bg-tertiary">
+    <div class="container text-left">
+        <div class="row">
+            <div class="col-12 col-md-4">
+                <div class="pr-lg-5">
+                   <h1 class="heading h6 text-uppercase font-weight-700 mb-3"><strong>STorm</strong> - by teachers,
+                       with teachers, for teachers</h1>
+                   <p></p> <!-- change when we figure it out-->
+                </div>
+            </div>
+            <div class="col-6 col-md">
+                <h5 class="heading h6 text-uppercase font-weight-700 mb-3">Tutorials</h5>
+               <ul class="list-unstyled text-small">
+                   <li><a class="text-muted" href="#">Back To Top</a></li>
+               </ul>
+        </div>
+        <div class="col-6 col-md">
+            <h5 class="heading h6 text-uppercase font-weight-700 mb-3">{% trans "Documentation" %}</h5>
+            <ul class="list-unstyled text-small">
+                <li><a class="text-muted" href="https://git.mif.vu.lt/storm/storm/-/tree/master">{% trans "Git Repository" %}</li>
+            </ul>
+        </div>
+     </div>
+    <hr>
+</footer>

@@ -1,0 +1,3 @@
+18:48 - Meeting start, diving into Django forms
+Decided to create branches in VCS, start familirazing ourselfs with forms and templates
+17:20 - Meeting end

@@ -1,0 +1,10 @@
+12:00 - Meeting start
+12:07 - Logo discussion
+12:55 - Writing email for supervisor
+13:09 - Reviewing HTML code
+13:29 - Discussing team expectations
+13:35 - Reviewing functional requirements
+13:50 - Meeting end, showing how to convert timelogs
+
+Decided:
+	Rating will be based on likes (no N-star rating)

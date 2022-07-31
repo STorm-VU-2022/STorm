@@ -1,0 +1,585 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-06-13 21:08+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\groups\forms.py:19 .\groups\forms.py:20
+#: .\groups\templates\groups\search-group.html:27
+msgid "Group Name"
+msgstr ""
+
+#: .\groups\forms.py:29 .\news\forms.py:83
+msgid "Short description (max 140 characters)"
+msgstr ""
+
+#: .\groups\forms.py:35 .\groups\templates\groups\group-creation.html:62
+#: .\news\forms.py:88 .\news\templates\news\upload.html:87
+msgid "Full Description"
+msgstr ""
+
+#: .\groups\models.py:22
+msgid "Group Photo"
+msgstr ""
+
+#: .\groups\templates\groups\group-creation.html:33
+msgid "Create Group"
+msgstr ""
+
+#: .\groups\templates\groups\group-creation.html:51
+#: .\news\templates\news\upload.html:77
+msgid "Short Description"
+msgstr ""
+
+#: .\groups\templates\groups\group-creation.html:78
+#: .\groups\templates\groups\group-invite-user.html:58
+#: .\news\templates\news\material.html:159
+#: .\news\templates\news\upload.html:103
+msgid "Submit"
+msgstr ""
+
+#: .\groups\templates\groups\group-invite-user.html:42
+#: .\users\templates\users\profile.html:117
+msgid "Invite"
+msgstr ""
+
+#: .\groups\templates\groups\group-invite-user.html:42
+msgid "to your group"
+msgstr ""
+
+#: .\groups\templates\groups\group-profile.html:31
+#: .\users\templates\users\profile.html:64
+msgid "likes"
+msgstr ""
+
+#: .\groups\templates\groups\group-profile.html:33
+msgid "members"
+msgstr ""
+
+#: .\groups\templates\groups\group-profile.html:45
+msgid "Edit"
+msgstr ""
+
+#: .\groups\templates\groups\group-profile.html:51
+msgid "Leave"
+msgstr ""
+
+#: .\groups\templates\groups\group-profile.html:56
+#: .\users\templates\users\profile.html:115
+msgid "Follow"
+msgstr ""
+
+#: .\groups\templates\groups\group-profile.html:71
+#: .\users\templates\users\profile.html:136
+msgid "Top Uploads"
+msgstr ""
+
+#: .\groups\templates\groups\group-profile.html:97 .\news\forms.py:57
+#: .\news\templates\news\homepage.html:181
+#: .\news\templates\news\material.html:49 .\news\templates\news\search.html:56
+#: .\news\templates\news\search.html:140
+msgid "Grade"
+msgstr ""
+
+#: .\groups\templates\groups\group-profile.html:108
+#: .\news\templates\news\homepage.html:192
+#: .\news\templates\news\search.html:151
+#: .\users\templates\users\profile.html:167
+msgid "View Material"
+msgstr ""
+
+#: .\groups\templates\groups\group-profile.html:116
+msgid "No publications associated with this group were found"
+msgstr ""
+
+#: .\groups\templates\groups\my-groups.html:15
+msgid "Your Groups"
+msgstr ""
+
+#: .\groups\templates\groups\my-groups.html:53
+msgid "Group Invites"
+msgstr ""
+
+#: .\groups\templates\groups\search-group.html:23
+#: .\mysite\templates\include\_navbar.html:45
+msgid "Group Search"
+msgstr ""
+
+#: .\groups\templates\groups\search-group.html:32
+#: .\groups\templates\groups\search-group.html:37
+#: .\news\templates\news\search.html:21 .\news\templates\news\search.html:89
+#: .\users\templates\users\search-user.html:33
+msgid "Search"
+msgstr ""
+
+#: .\groups\templates\groups\search-group.html:50
+msgid "Groups Found"
+msgstr ""
+
+#: .\groups\templates\groups\search-group.html:76
+msgid "View Group"
+msgstr ""
+
+#: .\mysite\settings.py:130
+msgid "English"
+msgstr ""
+
+#: .\mysite\settings.py:131
+msgid "Lithuanian"
+msgstr ""
+
+#: .\mysite\templates\include\_footer.html:21
+msgid "Documentation"
+msgstr ""
+
+#: .\mysite\templates\include\_footer.html:23
+msgid "Git Repository"
+msgstr ""
+
+#: .\mysite\templates\include\_navbar.html:21
+#: .\mysite\templates\include\_navbar.html:53
+msgid "Material"
+msgstr ""
+
+#: .\mysite\templates\include\_navbar.html:23
+#: .\mysite\templates\include\_navbar.html:55
+msgid "Homepage"
+msgstr ""
+
+#: .\mysite\templates\include\_navbar.html:24
+#: .\mysite\templates\include\_navbar.html:56
+#: .\news\templates\news\search.html:11
+msgid "Material Search"
+msgstr ""
+
+#: .\mysite\templates\include\_navbar.html:25
+#: .\news\templates\news\upload.html:29
+msgid "Material Upload"
+msgstr ""
+
+#: .\mysite\templates\include\_navbar.html:31
+#: .\users\templates\users\leaderboard.html:21
+msgid "User"
+msgstr ""
+
+#: .\mysite\templates\include\_navbar.html:33
+#: .\users\templates\users\leaderboard.html:24
+msgid "Profile"
+msgstr ""
+
+#: .\mysite\templates\include\_navbar.html:34
+#: .\users\templates\users\search-user.html:24
+msgid "User Search"
+msgstr ""
+
+#: .\mysite\templates\include\_navbar.html:35
+msgid "Leaderboard"
+msgstr ""
+
+#: .\mysite\templates\include\_navbar.html:41
+msgid "Groups"
+msgstr ""
+
+#: .\mysite\templates\include\_navbar.html:43
+msgid "My Groups"
+msgstr ""
+
+#: .\mysite\templates\include\_navbar.html:44
+msgid "Group Creation"
+msgstr ""
+
+#: .\mysite\templates\include\_navbar.html:46
+msgid "Edit Group"
+msgstr ""
+
+#: .\mysite\templates\include\_navbar.html:63 .\news\forms.py:65
+#: .\news\forms.py:66 .\news\templates\news\material.html:57
+#: .\news\templates\news\search.html:68
+msgid "Language"
+msgstr ""
+
+#: .\mysite\templates\include\_navbar.html:72
+#: .\mysite\templates\include\_navbar.html:73
+msgid "Sign Out"
+msgstr ""
+
+#: .\mysite\templates\include\_navbar.html:75
+#: .\mysite\templates\include\_navbar.html:76
+msgid "Log In"
+msgstr ""
+
+#: .\mysite\templates\registration\login.html:22
+msgid "You are already logged in as"
+msgstr ""
+
+#: .\mysite\templates\registration\login.html:24
+msgid "Welcome back"
+msgstr "Welcome back"
+
+#: .\mysite\templates\registration\login.html:25
+msgid "login to your account."
+msgstr ""
+
+#: .\mysite\templates\registration\login.html:31
+msgid "New here?"
+msgstr ""
+
+#: .\mysite\templates\registration\login.html:32
+msgid "Register now!"
+msgstr ""
+
+#: .\mysite\templates\registration\login.html:33
+msgid "Sign in"
+msgstr ""
+
+#: .\news\forms.py:18 .\news\templates\news\material.html:41
+#: .\news\templates\news\search.html:44
+msgid "Subject"
+msgstr ""
+
+#: .\news\forms.py:21
+msgid "Search for a subject"
+msgstr ""
+
+#: .\news\forms.py:28 .\news\templates\news\search.html:80
+msgid "Group"
+msgstr ""
+
+#: .\news\forms.py:31
+msgid "Search for a group"
+msgstr ""
+
+#: .\news\forms.py:51 .\news\forms.py:52
+msgid "Material Title"
+msgstr ""
+
+#: .\news\forms.py:60 .\news\forms.py:68 .\news\templates\news\search.html:45
+#: .\news\templates\news\search.html:57 .\news\templates\news\search.html:69
+#: .\news\templates\news\search.html:81
+msgid "Search ..."
+msgstr ""
+
+#: .\news\models.py:16
+msgid "Media contents of file (up to 25MB)"
+msgstr ""
+
+#: .\news\models.py:19
+msgid "Publication Photo"
+msgstr ""
+
+#: .\news\templates\news\homepage.html:20
+msgid "Want to find some materials for your lessons? Yes you do!"
+msgstr ""
+
+#: .\news\templates\news\homepage.html:23
+msgid ""
+"STorm lets you easily and intuitively find and share new learning materials "
+"with other teachers!"
+msgstr ""
+
+#: .\news\templates\news\homepage.html:27
+msgid "Learn more"
+msgstr ""
+
+#: .\news\templates\news\homepage.html:50
+msgid "Find Content for Lessons"
+msgstr ""
+
+#: .\news\templates\news\homepage.html:51
+msgid ""
+"It has never been easier, enough endless searching for new quizzes, "
+"presentations, tasks or tests, everything is here in one place."
+msgstr ""
+
+#: .\news\templates\news\homepage.html:59
+msgid "Help Your Career"
+msgstr ""
+
+#: .\news\templates\news\homepage.html:60
+msgid ""
+"If you are a new teacher, improve your CV by uploading your own created "
+"learning materials and getting ratings and recommendations from other "
+"teachers."
+msgstr ""
+
+#: .\news\templates\news\homepage.html:68
+msgid "Completely Free"
+msgstr ""
+
+#: .\news\templates\news\homepage.html:69
+msgid ""
+"The system is developed with no intentions of monetization and our team "
+"focuses heavily on listening to the needs and requests of teachers utilizing "
+"our system."
+msgstr ""
+
+#: .\news\templates\news\homepage.html:86
+msgid "Represent Yourself"
+msgstr ""
+
+#: .\news\templates\news\homepage.html:88
+msgid ""
+"We offer seemless profile customization to best showcase yourself to the "
+"public, including ability to easily link to your social media and linkedin "
+"profiles."
+msgstr ""
+
+#: .\news\templates\news\homepage.html:99
+msgid "Active Community of Teachers"
+msgstr ""
+
+#: .\news\templates\news\homepage.html:101
+msgid "With some of the best learning content creators!"
+msgstr ""
+
+#: .\news\templates\news\homepage.html:120
+#: .\users\templates\users\profile.html:48
+msgid "New Teacher"
+msgstr ""
+
+#: .\news\templates\news\homepage.html:128
+#: .\users\templates\users\search-user.html:70
+msgid "View Profile"
+msgstr ""
+
+#: .\news\templates\news\homepage.html:148
+msgid "Easy and Intuitive Material Search"
+msgstr ""
+
+#: .\news\templates\news\homepage.html:150
+msgid ""
+"With the centralization of learning content sharing in one place, new "
+"filtering and search systems finding new materials has never been easier. We "
+"strive to provide the best experience for teachers."
+msgstr ""
+
+#: .\news\templates\news\homepage.html:161
+msgid "Featured Materials"
+msgstr ""
+
+#: .\news\templates\news\material.html:34
+msgid "Material Information"
+msgstr ""
+
+#: .\news\templates\news\material.html:65
+msgid "Author"
+msgstr ""
+
+#: .\news\templates\news\material.html:80
+msgid "Click to Like!"
+msgstr ""
+
+#: .\news\templates\news\material.html:93
+msgid "Description"
+msgstr ""
+
+#: .\news\templates\news\material.html:132
+msgid "Download Material"
+msgstr ""
+
+#: .\news\templates\news\search.html:15
+msgid "Title"
+msgstr ""
+
+#: .\news\templates\news\search.html:28
+msgid "Sort"
+msgstr ""
+
+#: .\news\templates\news\search.html:93
+msgid "Clear Filters"
+msgstr ""
+
+#: .\news\templates\news\search.html:116
+#: .\users\templates\users\search-user.html:46
+msgid "Results"
+msgstr ""
+
+#: .\news\templates\news\search.html:163
+#: .\users\templates\users\leaderboard.html:64
+#: .\users\templates\users\search-user.html:83
+msgid "first"
+msgstr ""
+
+#: .\news\templates\news\search.html:164
+#: .\users\templates\users\leaderboard.html:65
+#: .\users\templates\users\search-user.html:84
+msgid "previous"
+msgstr ""
+
+#: .\news\templates\news\search.html:168
+#: .\users\templates\users\leaderboard.html:69
+#: .\users\templates\users\search-user.html:88
+msgid "of"
+msgstr ""
+
+#: .\news\templates\news\search.html:172
+#: .\users\templates\users\leaderboard.html:73
+#: .\users\templates\users\search-user.html:92
+msgid "next"
+msgstr ""
+
+#: .\news\templates\news\search.html:173
+#: .\users\templates\users\leaderboard.html:74
+#: .\users\templates\users\search-user.html:93
+msgid "last"
+msgstr ""
+
+#: .\news\templates\news\upload.html:56
+msgid "Public"
+msgstr ""
+
+#: .\news\templates\news\upload.html:106
+msgid "You must login in order to upload!"
+msgstr ""
+
+#: .\users\forms.py:9
+msgid "Full name"
+msgstr "Full name"
+
+#: .\users\forms.py:10
+msgid "Email"
+msgstr "Email"
+
+#: .\users\forms.py:11
+msgid "Enter password"
+msgstr "Enter password"
+
+#: .\users\forms.py:12
+msgid "Confirm password"
+msgstr "Confirm password"
+
+#: .\users\forms.py:38 .\users\forms.py:39
+#: .\users\templates\users\leaderboard.html:22
+msgid "Profession"
+msgstr ""
+
+#: .\users\forms.py:48
+msgid "Full description about you"
+msgstr ""
+
+#: .\users\forms.py:53
+msgid "Facebook link (optional)"
+msgstr ""
+
+#: .\users\forms.py:58
+msgid "Twitter link (optional)"
+msgstr ""
+
+#: .\users\forms.py:63
+msgid "Instagram link (optional)"
+msgstr ""
+
+#: .\users\forms.py:68
+msgid "LinkedIn link (optional)"
+msgstr ""
+
+#: .\users\models.py:89
+msgid "recommendation text"
+msgstr ""
+
+#: .\users\templates\users\leaderboard.html:16
+msgid "Top Users"
+msgstr ""
+
+#: .\users\templates\users\leaderboard.html:23
+msgid "Likes"
+msgstr ""
+
+#: .\users\templates\users\leaderboard.html:69
+#: .\users\templates\users\search-user.html:88
+msgid "Page"
+msgstr ""
+
+#: .\users\templates\users\profile.html:56
+msgid "uploads"
+msgstr ""
+
+#: .\users\templates\users\profile.html:60
+msgid "downloads"
+msgstr ""
+
+#: .\users\templates\users\profile.html:68
+msgid "followers"
+msgstr ""
+
+#: .\users\templates\users\profile.html:113
+msgid "Edit Profile"
+msgstr ""
+
+#: .\users\templates\users\profile.html:192
+msgid "Write your recommendation!"
+msgstr ""
+
+#: .\users\templates\users\profile.html:199
+msgid "Recommend this teacher!"
+msgstr ""
+
+#: .\users\templates\users\profile.html:205
+msgid "Recommendations"
+msgstr ""
+
+#: .\users\templates\users\profile.html:240
+msgid "Please log in to view your profile"
+msgstr ""
+
+#: .\users\templates\users\profile_edit.html:13
+msgid "Invalid links"
+msgstr ""
+
+#: .\users\templates\users\profile_edit.html:13
+msgid "Please ensure that your social media links are correct"
+msgstr ""
+
+#: .\users\templates\users\profile_edit.html:29
+msgid "Edit your profile"
+msgstr ""
+
+#: .\users\templates\users\profile_edit.html:40
+msgid "Choose profile picture…"
+msgstr ""
+
+#: .\users\templates\users\profile_edit.html:52
+msgid "Profile Description"
+msgstr ""
+
+#: .\users\templates\users\profile_edit.html:67
+msgid "Social Media Links"
+msgstr ""
+
+#: .\users\templates\users\profile_edit.html:92
+msgid "Save"
+msgstr ""
+
+#: .\users\templates\users\profile_edit.html:108
+msgid "You need to login in order to edit your profile"
+msgstr ""
+
+#: .\users\templates\users\register.html:20
+msgid "Welcome!"
+msgstr ""
+
+#: .\users\templates\users\register.html:21
+msgid "Create your account."
+msgstr ""
+
+#: .\users\templates\users\register.html:26
+msgid "Sign up"
+msgstr ""
+
+#: .\users\templates\users\search-user.html:28
+msgid "Username"
+msgstr ""

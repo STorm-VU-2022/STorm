@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Leaderboard
+{% endblock %}
+{% load i18n %}
+
+{% block contents %}
+<main class="main">
+    <div class="container mt-1 mb-5">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-12">
+                <div class="card p-3 py-4"
+                     style="border: 2px solid #E8F2FF; box-shadow: 0 8px 17px 0 #E8F2FF, 0 6px 20px 0 rgba(0,0,0,0.19)">
+                                    <span class="badge badge-lg badge-pill badge-secondary mb-4">
+                                        <h1>{% trans "Top Users" %}</h1>
+                                      </span>
+                                    <table class="table text-center">
+                                        <thead>
+                                            <tr>
+                                                <th>{% trans "User" %}</th>
+                                                <th>{% trans "Profession" %}</th>
+                                                <th>{% trans "Likes" %}</th>
+                                                <th>{% trans "Profile" %}</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for teacher in teachers %}
+                                            {% if teacher.name %}
+                                            <tr>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                    {% if teacher.profile_picture %}
+                                                    <img src="{{teacher.profile_picture.url}}" width="30" height="30" class="rounded-circle circle-img--small mr-2" alt="User Img" style="padding: 2px" onerror="this.src='{% static 'images/user.jpg' %}'" >
+                                                    {% else %}
+                                                        <img src="{% static 'images/user.jpg' %}" width="30" height="30" class="rounded-circle circle-img--small mr-2">
+                                                    {% endif %}
+                                                        <div class="user-info__basic">
+                                                            <h4 class="mb-0">{{teacher.name}}</h4>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="align-text-baseline">
+                                                            <h4 class="mb-0">{{teacher.profession}}</h4>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="align-text-baseline">
+                                                        <h4 class="mr-1">{{teacher.total_publication_likes}}</h4><small class="text-success">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <a href="{% url 'view-profile' teacher.teacher_pk %}"><button class="btn btn-primary btn-sm">View</button></a>
+                                                </td>
+                                            </tr>
+                                            {% endif %}
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+                                    <div class="pagination">
+                                        <span class="step-links float-sm-right">
+                                            {% if teachers.has_previous %}
+                                                <a href="?page=1">&laquo; {% trans "first" %}</a>
+                                                <a href="?page={{ teachers.previous_page_number }}">{% trans "previous" %}</a>
+                                            {% endif %}
+                                    
+                                            <span class="current">
+                                                {% trans "Page" %} {{ teachers.number }} {% trans "of" %} {{ teachers.paginator.num_pages }}.
+                                            </span>
+                                    
+                                            {% if teachers.has_next %}
+                                                <a href="?page={{ teachers.next_page_number }}">{% trans "next" %}</a>
+                                                <a href="?page={{ teachers.paginator.num_pages }}">{% trans "last" %} &raquo;</a>
+                                            {% endif %}
+                                        </span>
+                                    </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>                  
+</main>
+{% endblock %}

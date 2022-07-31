@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Learning content sharing platform for teachers">
+    <meta name="author" content="STorm">
+    <title>
+        STorm - 
+        {% block title %}
+        STorm
+        {% endblock %}
+    </title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700,800|Roboto:400,500,700" rel="stylesheet">
+    <!-- Theme CSS -->
+    <!--    <link type="text/css" href="../assets/css/theme.css" rel="stylesheet">-->
+    <link type="text/css" href="{% static 'css/theme.css' %}" rel="stylesheet">
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+
+<!-- NavbarStart -->
+{% include 'include/_navbar.html' %}
+<!-- Top Navbar End -->
+
+
+<main class="main"><br><br>
+    <div class="container mt-2 mb-4">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-12">
+                {% block contents %}
+                <h1>Hello</h1>
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+    {% include 'include/_footer.html' %}
+</main>
+
+<!-- Core -->
+<!--<script src="../assets/vendor/jquery/jquery.min.js"></script>-->
+<script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+<script src="{% static 'vendor/popper/popper.min.js' %}"></script>
+<script src="{% static 'js/bootstrap/bootstrap.min.js' %}"></script>
+<!-- FontAwesome 5 -->
+<script src="{% static 'vendor/fontawesome/js/fontawesome-all.min.js' %}" defer></script>
+<!-- Page plugins -->
+<script src="{% static 'vendor/bootstrap-select/js/bootstrap-select.min.js' %}"></script>
+<script src="{% static 'vendor/bootstrap-tagsinput/bootstrap-tagsinput.min.js' %}"></script>
+<script src="{% static 'vendor/input-mask/input-mask.min.js' %}"></script>
+<script src="{% static 'vendor/nouislider/js/nouislider.min.js' %}"></script>
+<script src="{% static 'vendor/textarea-autosize/textarea-autosize.min.js' %}"></script>
+<!-- Theme JS -->
+<script src="{% static 'js/theme.js' %}"></script>
+</body>
+
+</html>

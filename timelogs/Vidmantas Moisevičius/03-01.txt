@@ -1,0 +1,4 @@
+8:00-12:00 Interviewing multiple teachers (1to1) regarding the projects goals, possible problems, preliminary design, getting preliminary opions and reviews.
+15:00-15:40 Creating mobile application preliminary design diagram
+17:25-18:20 Writing functional and non-functional requirements
+18:30-20:30 Team meeting regarding future presentation, competitive analysis, function nonfunctional requirements.

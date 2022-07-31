@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    User Search
+{% endblock %}
+{% load i18n %}
+
+{% block contents %}
+<style>
+    .cards {
+      transition: transform 0.2s ease;
+      box-shadow: 0 4px 6px 0 rgba(22, 22, 26, 0.18);
+      border-radius: 0;
+      border: 0;
+      margin-bottom: 1.5em;
+    }
+    .cards:hover {
+      transform: scale(1.1);
+    }
+</style>
+
+<div class="col-md-12">
+    <div class="card p-3 py-4" style="border: 2px solid #E8F2FF; box-shadow: 0 8px 17px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)">
+        <span class="badge badge-lg badge-pill badge-secondary mb-4"><h1>{% trans "User Search" %}</h1></span>
+        <form method="post" action="{% url 'user-search' %}">
+            {% csrf_token %}
+        <div class="input-group mb-3">
+            <input type="search" class="form-control" placeholder={% trans "Username" %} aria-label={% trans "Username" %}
+                   aria-describedby="basic-addon2" name="search_keywords">
+                   
+            <div class="input-group-append">
+                <button type="submit" class="btn btn-secondary btn-animated btn-animated-y">
+                    <span class="btn-inner--hidden">{% trans "Search" %}</span>
+                    <span class="btn-inner--visible"><i class="fas fa-search"></i></span>
+                </button>
+            </div></form>
+        </div>
+    </div>
+</div>
+
+<main class="main"><br><br>
+    <div class="container mt-2">
+        <div class="row d-flex justify-content-center">
+            <div class="shadow-lg col-lg">
+                <div class="card p-3 py-4" style="border: 2px solid #E8F2FF; box-shadow: 0 8px 17px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)">
+                    <span class="badge badge-lg badge-pill badge-secondary mb-4"><h1>{% trans "Results" %}</h1></span>
+                    <section class="slice slice-lg" data-delimiter="1">
+                        <div class="container">
+                            <div class="row cols-xs-space cols-sm-space cols-md-space">
+                                {% for teacher in page_obj %}
+                                {% if teacher.full_name %}
+                                <div class="col-lg-4">
+                                    <div class="cards" style="
+                                    transition: transform 0.2s ease;
+                                    box-shadow: 0 4px 6px 0 rgba(22, 22, 26, 0.18);
+                                    border-radius: 0;
+                                    border: 0;
+                                    margin-bottom: 1.5em;
+                                    hover:transform: scale(1.1)">
+                                        {% if teacher.profile_picture %}
+                                        <img src="{{teacher.profile_picture.url}}" class="card-img-top" height="250vw" onerror="this.src='{% static 'images/user.jpg' %}'" >
+                                        {% else %}
+                                            <img src="{% static 'images/user.jpg' %}" class="card-img-top" height="250vw">
+                                        {% endif %}
+                                        <div class="card-body text-center">
+                                            <h3 class="heading h5 mb-1">
+                                                <span class="d-block">{{teacher.full_name}}</span>
+                                                <small class="text-muted">{{teacher.profession}}</small>
+                                            </h3>
+                                            <a href="{% url 'view-profile' teacher.pk %}"><button class="btn btn-primary btn-sm">{% trans "View Profile" %}</button></a>
+
+                                        </div>
+                                    </div><br>
+                                </div> 
+                                {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </section>
+                    <div class="pagination">
+                        <span class="step-links float-sm-right">
+                            {% if page_obj.has_previous %}
+                                <a href="?page=1">&laquo; {% trans "first" %}</a>
+                                <a href="?page={{ page_obj.previous_page_number }}">{% trans "previous" %}</a>
+                            {% endif %}
+                    
+                            <span class="current">
+                                {% trans "Page" %} {{ page_obj.number }} {% trans "of" %} {{ page_obj.paginator.num_pages }}.
+                            </span>
+                    
+                            {% if page_obj.has_next %}
+                                <a href="?page={{ page_obj.next_page_number }}">{% trans "next" %}</a>
+                                <a href="?page={{ page_obj.paginator.num_pages }}">{% trans "last" %} &raquo;</a>
+                            {% endif %}
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br> <br>
+</main>
+{% endblock %}

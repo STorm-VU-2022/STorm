@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block title %}
+Sign-in
+{% endblock %}
+{% load i18n %}
+
+{% block contents %}
+
+<main class="main">
+    <div class="container d-flex align-items-center no-padding">
+        <div class="col">
+            <div class="row justify-content-center">
+                <div class="col-lg-4">
+                    <div class="card bg-primary text-white"
+                         style="box-shadow: 0 8px 17px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)">
+                        <div class="card-body">
+                            <span class="clearfix"></span>
+                            <img src="{% static 'images/logo.png' %}" style="width: 100px;">
+                            {% if user.is_authenticated %}
+                            <h4 class="heading h3 text-white pt-3 pb-5">{% trans "You are already logged in as" %} <br>"{{user.full_name}}"<br></h4>
+                            {% else %}
+                            <h4 class="heading h3 text-white pt-3 pb-5">{% trans "Welcome back" %},<br>
+                                {% trans "login to your account." %}</h4>
+                            <form class="form-primary" method="post" action="{% url 'login' %}">
+                                {% csrf_token %}
+                                <div class="form-group">
+                                    {{ form|crispy}}
+                                </div>
+                                <div class="text-right mt-4"><a class="text-white">{% trans "New here?" %} <br> </a> <a
+                                        href="{% url 'register' %}" class="text-white"> {% trans "Register now!" %} </a></div>
+                                <button type="submit" class="btn btn-block btn-lg bg-white mt-4">{% trans "Sign in" %}</button>
+                                <input type="hidden" name="next" value="{{ next }}">
+                            </form>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main> <br>
+
+{% endblock %}
+
+
+

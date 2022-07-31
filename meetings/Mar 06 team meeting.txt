@@ -1,0 +1,5 @@
+12:00 - Meeting start, sharing ideas of how to improve our system
+12:45 - Considering the importance and priority of setting up CI/CD
+12:55 - Creating Jira tasks
+13:08 - HCI presentations
+13:20 - Meeting end

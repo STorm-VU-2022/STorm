@@ -1,0 +1,20 @@
+Agenda:
+	1. Discuss how to 'clean up' our git
+	2. Discuss which CI/CD features we need
+	3. Assign someone to create Git branches
+	4. Discuss how we will start implementing template inheritance
+	5. Show how to integrate front-end to the project
+	6. Discuss how to develop front-end now
+	7. Decide whether to put database login info in settings.py or have a separate config file
+
+14:00 - Meeting start, agenda p.1
+	Decided not to upload big files to media files
+
+14:18 - agenda p.2, p.7
+	Decided to have only automatic deployment
+	
+14:21 - agenda p.3
+	Decided not to have `dev` branch
+	
+14:26 - agenda p.4
+14:38 - agenda p.5 + p.6

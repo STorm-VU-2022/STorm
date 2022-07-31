@@ -1,0 +1,130 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% block title %}{{ group.name }}{% endblock %}
+{% load i18n %}
+
+{% block contents %}
+
+
+<main class="main">
+    <div class="container mt-1">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-12">
+                <div class="card p-3 py-4"
+                     style="border: 2px solid #E8F2FF; box-shadow: 0 8px 17px 0 #E8F2FF, 0 6px 20px 0 rgba(0,0,0,0.19)">
+                    <div class="text-center">
+                        {% if group.photo %}
+                        <img src="{{ group.photo.url }}" width="225" height="225"
+                             onerror="this.src='{% static 'images/group.jpg' %}'" class="rounded-circle">
+                        {% else %}
+                        <img src="../assets/images/basic.jpg" width="225" height="225"
+                             onerror="this.src='{% static 'images/group.jpg' %}'"
+                             class="rounded-circle">
+                        {% endif %}
+                    </div>
+                    <h3 class="mt-2 mb-0">{{ group.name }}</h3>
+                    <div class="px-4 mt-1">
+                        <ul class="social media col-md-3 nav navbar navbar-left d-flex p-2 d-inline-flex fa-1x">
+                            <a class="bg-red p-2 px-3 rounded text-white">
+                                <span> <i class="fa fa-heart"></i> </span>
+                                {{ no_of_likes }} {% trans "likes" %} </a>
+                            <a class="bg-purple p-2 px-3 rounded text-white"><span> <i class="fa fa-user"></i> </span>
+                                {{ no_of_group_members }} {% trans "members" %}
+                            </a>
+                        </ul>
+                    </div>
+                    <div class="px-4 mt-1">
+                        <br>
+                        <p class="fonts">{{ group.description }}</p>
+                    </div>
+
+                    <div class="buttons fa-5x">
+                        <!-- Only one of these would appear depending on whose account you are on-->
+                        {% if user_is_creator %}
+
+                        {% else %}
+                        {% if is_user_follower %}
+                        <form action="{% url 'group-unfollow' group_pk=group.pk do_redirect_to_group=True %}"
+                              method="post">
+                            {% csrf_token %}
+                            <button class="btn btn-primary px-4 ms-3">{% trans "Leave" %}</button>
+                        </form>
+                        {% else %}
+                        <form action="{% url 'group-follow' group.pk %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-outline-primary px-4">{% trans "Follow" %}</button>
+                        </form>
+                        {% endif %}
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-4 mb-4">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-12">
+                <div class="card p-3 py-4"
+                     style="border: 2px solid #E8F2FF; box-shadow: 0 8px 17px 0 #E8F2FF, 0 6px 20px 0 rgba(0,0,0,0.19)">
+                    <span class="badge badge-lg badge-pill badge-secondary"><h2>{% trans "Top Uploads" %}</h2></span> <br>
+                    <section class="slice slice-sm" data-delimiter="1">
+                        <div class="container">
+                            <div class="row cols-sm-space">
+                                {% if related_publications %}
+                                    {% for publication in related_publications %}
+                                        <div class="col-lg-4">
+                                            <div class="cards" style="
+                                            transition: transform 0.2s ease;
+                                            box-shadow: 0 4px 6px 0 rgba(22, 22, 26, 0.18);
+                                            border-radius: 0;
+                                            border: 0;
+                                            margin-bottom: 1.5em;
+                                            hover:transform: scale(1.1)">
+                                                {% if publication.photo %}
+                                                <img src="{{publication.photo.url}}" class="card-img-top" height="225vw">
+                                                {% else %}
+                                                <img src="{% static 'images/basic.jpg' %}" class="card-img-top" height="225vw">
+                                                {% endif %}
+                                                <div class="card-body text-center">
+                                                    <a href="{% url 'view-profile' publication.creator_id.pk %}"><small
+                                                            class="text-muted">{{publication.creator_id.full_name}}</small></a>
+                                                    <h3 class="heading h5 mb-1">
+                                                        <span class="d-block"> {{ publication.title }} </span>
+                                                    </h3>
+                                                    <span class="badge badge-lg badge-pill badge-secondary text-uppercase">{{ publication.subject }} </span>
+                                                    <span class="badge badge-lg badge-pill badge-secondary text-uppercase">{% trans "Grade" %} {{ publication.student_year }}</span>
+                                                    <span class="badge badge-lg badge-pill badge-secondary text-uppercase">{{ publication.language }}</span>
+                                                    <br>
+                                                    <p class="mt-2">{{publication.short_description}}</p>
+                                                    <div class="btn-group btn-action-label" role="group" aria-label="Like">
+                                                        <a href="#" class="btn btn-sm btn-outline-danger btn-label">{{ publication.likes.count }}</a>
+                                                        <button type="button" class="btn btn-sm btn-danger btn-action">
+                                                            <i class="fas fa-heart"></i>
+                                                        </button>
+                                                    </div>
+                                                    <a href="{% url 'view-publication' publication.pk %}" target="_blank"
+                                                       class="btn btn-sm btn-primary">{% trans "View Material" %}</a> <br> <br>
+                                                </div>
+                                            </div>
+                                            <br>
+                                        </div>
+                                    {% endfor %}
+                                {% else %}
+                                <div class="col-lg-12">
+                                    <h1>{% trans "No publications associated with this group were found" %}</h1>
+                                </div>
+                                {% endif %}
+
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</main>
+
+{% endblock %}

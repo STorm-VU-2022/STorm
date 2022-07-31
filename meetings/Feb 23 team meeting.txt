@@ -1,0 +1,37 @@
+12:10 - Aras' and Andrej's discussion about what database to use (PostgreSQL vs. MySQL)
+		NOTE: Django web framework IS NOT covered in Python course, Flask will be.
+		
+* Vidmantas joins *
+
+18:20 - Review of general progress
+		NOTE: 	Add folders to Git Repo	-	Andrej
+				Jira 	-	Aras
+				
+18:23 - Discuss technologies and frameworks that we might want to use
+		NOTE:	MySQL the most probably will used
+				We will try to use Python for our backend
+				Micro framework vs. full-stack framework
+					Micro framework advantages:
+						1. Can be undestanded faster
+						2. Can start being used in our project more faster
+						
+					Full-stack framework (most likely Django):
+						1. More features
+						2. No risk that there will be need to rewrite whole application due to missing feature in a micro framework
+				
+18:40 -	Consider what steps to take next in the design process
+		1. Start thinking off milestone idea
+		2. Start with requirements specification
+			a) Purpose of the system
+			b) A high-level overview of the system
+			c) Functional and non-functional requirements
+			
+18:51 - Reviewing ideas
+	
+Decided:
+		Use Python with full-stack framework
+	
+Tasks:
+	- Vidmantas (and optionally Andrej) - search for web page templates (bootstrap)
+	- Aras 		- Add folders to Git Repo
+	- Andrej 	- Add folders to Git Repository

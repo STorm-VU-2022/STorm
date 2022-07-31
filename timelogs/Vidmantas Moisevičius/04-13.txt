@@ -1,0 +1,1 @@
+16:35-18:20 18:30-19:30 Setting up django virtual environment and starting the integration of html templates into djangohtml templates 

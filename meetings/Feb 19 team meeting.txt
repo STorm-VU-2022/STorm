@@ -1,0 +1,18 @@
+11:05 - Discussing group roles and basic work separation, what tools to use
+11:10 - Discussing basic functionality
+	Both Android application and Web Page can be used to upload files
+	It is possible to see what lessons were created by a specific teacher
+	Specific tag for complete lesson or just a additional lesson material
+	
+12:07 - Meeting end
+	
+Android app - Vidmantas, Andrej
+Web page - Vidmantas, Aras, possibly Andrej
+Back-End - Aras, Andrej
+
+Vidmantas - Git repo and preliminary design
+Aras - deployment, proof of concept
+Aras and Andrej - ER model
+
+For the next group meeting:
+	- Create Jira page

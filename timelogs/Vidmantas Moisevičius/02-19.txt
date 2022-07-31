@@ -1,0 +1,2 @@
+11:00-12:05 Team meeting regarding preliminary project ideas, making git repo
+13:00-15:00 Research regarding basic front-end website design

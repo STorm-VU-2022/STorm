@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    Material search
+{% endblock %}
+{% load i18n %}
+
+{% block contents %}
+  <main class="main">
+    <div class="container mt-2 mb-2">
+      <div class="row d-flex justify-content-center">
+        <div class="col-md-12">
+          <div class="card p-3 py-4" style="border: 2px solid #E8F2FF; box-shadow: 0 8px 17px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)">
+            <span class="badge badge-lg badge-pill badge-secondary mb-4">
+              <h1>Edit Group (GROUPNAME)</h1>
+            </span>
+            <input type="file" name="file-3" id="file-3" class="custom-input-file custom-input-file--2"
+            accept="image/png, image/gif, image/jpeg">
+          <label for="file-3">
+            <i class="fa fa-upload"></i>
+            <span>Choose group profile picture…</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container mt-4">
+      <div class="row d-flex justify-content-center">
+        <div class="col-md-5">
+          <div class="card p-4" style="border: 2px solid #E8F2FF; box-shadow: 0 8px 17px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)">
+            <span class="badge badge-lg badge-pill badge-secondary mb-4">
+              <h2>Join Requests</h2>
+            </span>
+            <table class="table table-hover table-cards align-items-center">
+                    <tr class="bg-white">
+                        <th scope="row">
+                            <div class="media align-items-center">
+                                <img src="../assets/images/prv/thumb-1.jpg" class="avatar avatar-lg mr-3" onerror="this.src='{% static 'images/user.jpg' %}'">
+                                <div class="media-body">
+                                    <a href='#' class='text-primary h5'>Username</a>
+                                </div>
+                            </div>
+                        </th>
+                        <td><button type="button" class="btn btn-success btn-icon-only rounded-circle">
+                            <span class="btn-inner--icon"><i class="fas fa-check"></i></span>
+                        </button></td>
+                        <td><button type="button" class="btn btn-danger btn-icon-only rounded-circle">
+                            <span class="btn-inner--icon"><i class="fas fa-trash-alt"></i></span>
+                        </button></td>
+                    </tr>
+                    <tr class="table-divider"></tr>
+                </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="col-md-7">
+          <div class="card p-4" style="border: 2px solid #E8F2FF; box-shadow: 0 8px 17px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)">
+            <span class="badge badge-lg badge-pill badge-secondary mb-4">
+              <h2>Group Description</h2>
+            </span> 
+            <div class="form-group">
+              <textarea class="form-control textarea-autosize"
+                placeholder="Full description about the materials (max-x characters)" rows="1"
+                maxlength="250"></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container mt-4">
+      <div class="row d-flex justify-content-center">
+        <div class="col-md-12">
+          <div class="card p-3 py-4" style="border: 2px solid #E8F2FF; box-shadow: 0 8px 17px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)">
+            <div class="col-lg-13">
+              <button type="button" class="btn btn-block btn-primary">
+                <p class="h2 text-white">Save</p>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> <br> <br>
+  </main>
+
+  {% endblock %}

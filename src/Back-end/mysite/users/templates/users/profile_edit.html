@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block title %}
+    Profile Edit
+{% endblock %}
+{% load i18n %}
+
+{% block contents %}
+
+{% if name_error %}
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong>{% trans "Invalid links" %}</strong> {% trans "Please ensure that your social media links are correct" %}.
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+{% endif %}
+
+<main class="main">
+    {% if user.is_authenticated %}
+    <form method="POST" class="post-form" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="container mt-2 mb-2">
+      <div class="row d-flex justify-content-center">
+        <div class="col-md-12">
+          <div class="card p-3 py-4" style="border: 2px solid #E8F2FF; box-shadow: 0 8px 17px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)">
+            <span class="badge badge-lg badge-pill badge-secondary mb-4">
+              <h1>{% trans "Edit your profile" %}, {{user.full_name}}</h1>
+            </span>
+            <div class="row mb-4">
+              <div class="col-md-3">
+                {{form.profession}}
+              </div> <br>
+              </label>
+            </div>
+            <input type="file" name="file-3" id="file-3" class="custom-input-file custom-input-file--2"
+            accept="image/png, image/gif, image/jpeg">
+          <label for="file-3">
+            <span>{% trans "Choose profile picture…" %}</span>
+              {{form.profile_picture}}
+          </label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container mt-4 mb-4">
+      <div class="row d-flex justify-content-center">
+        <div class="col-md-12">
+          <div class="card p-3 py-4" style="border: 2px solid #E8F2FF; box-shadow: 0 8px 17px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)">
+            <span class="badge badge-lg badge-pill badge-secondary mb-4">
+              <h2>{% trans "Profile Description" %}</h2>
+            </span>
+            <div class="form-group">
+                {{form.self_description}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container mt-4 mb-2">
+        <div class="row d-flex justify-content-center">
+          <div class="col-md-12">
+            <div class="card p-3 py-4" style="border: 2px solid #E8F2FF; box-shadow: 0 8px 17px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)">
+              <span class="badge badge-lg badge-pill badge-secondary mb-4">
+                <h1>{% trans "Social Media Links" %}</h1>
+              </span>
+              <div class="input-group mb-3">
+                <i class="fab fa-facebook fa-4x" style="padding:2px"></i>
+                  {{form.facebook_link}}</div>
+                  <div class="input-group mb-3">
+                  <i class="fab fa-instagram fa-4x" style="padding:2px"></i>
+                  {{form.instagram_link}}</div>
+                  <div class="input-group mb-3">
+                  <i class="fab fa-linkedin fa-4x" style="padding:2px"></i>
+                  {{form.linkedin_link}} </div>
+                  <div class="input-group mb-3">
+                    <i class="fab fa-twitter fa-4x" style="padding:2px"></i>
+                  {{form.twitter_link}}</div>
+              </div>
+            </div>
+        </div>
+      </div>
+
+    <div class="container mt-4">
+      <div class="row d-flex justify-content-center">
+        <div class="col-md-12">
+          <div class="card p-3 py-4" style="border: 2px solid #E8F2FF; box-shadow: 0 8px 17px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)">
+            <div class="col-lg-13">
+              <button type="submit" value="Update" class="btn btn-block btn-primary">
+                <p class="h2 text-white">{% trans "Save" %}</p>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> <br> <br>
+    </form>
+    {% else %}
+    <div class="container d-flex align-items-center no-padding">
+        <div class="col">
+            <div class="row justify-content-center">
+                <div class="col-lg-4">
+                    <div class="card bg-primary text-white"
+                         style="box-shadow: 0 8px 17px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)">
+                        <div class="card-body">
+                             <h4 class="heading h3 text-white pt-3 pb-5">{% trans "You need to login in order to edit your profile" %}</h4>
+                        </div>
+                    </div>
+                    <div style="height: 50px; display: block;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+   {% endif %}
+  </main>
+
+
+  
+  {% endblock %}

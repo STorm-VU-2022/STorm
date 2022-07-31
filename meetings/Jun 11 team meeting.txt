@@ -1,0 +1,7 @@
+19:02 - Meeting start
+
+Decided:
+	Publication media constraint: 25 MB
+	
+Important thihgs:
+	Branch 'methodic_groups_create' merged to 'master' with resolved conflicts

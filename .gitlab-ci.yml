@@ -1,0 +1,12 @@
+before_script:
+  - cd /root/storm
+deploying:
+  stage: deploy
+  only:
+      - master
+  
+  script:
+    - ssh -o StrictHostKeyChecking=no root@localhost 'cd /root/storm && git reset --hard && git pull origin master'
+    - ssh -o StrictHostKeyChecking=no root@localhost 'systemctl restart apache2'
+    - ssh -o StrictHostKeyChecking=no root@localhost 'source /root/storm/src/Back-end/venv/bin/activate && python3 /root/storm/src/Back-end/mysite/manage.py collectstatic --noinput'
+    - ssh -o StrictHostKeyChecking=no root@localhost 'systemctl restart apache2'

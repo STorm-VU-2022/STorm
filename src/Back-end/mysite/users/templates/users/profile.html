@@ -1,0 +1,248 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Profile
+{% endblock %}
+{% block contents %}
+{% load i18n %}
+
+
+{% if user.is_authenticated or full_name %}
+<main class="main">
+    <div class="container mt-1">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-12">
+                <div class="card p-3 py-4"
+                     style="border: 2px solid #E8F2FF; box-shadow: 0 8px 17px 0 #E8F2FF, 0 6px 20px 0 rgba(0,0,0,0.19)">
+                    <div class="text-center">
+{% comment %}
+                        <!-- Check if user is authenticated -->
+                        {% if user.pk %}
+<!--                        In other words - user IS authenticated -->
+                            <div class="h1">user IS authenticated</div>
+                        {% else %}
+<!--                        In other words - user IS NOT authenticated -->
+                            <div class="h1">user IS NOT authenticated</div>
+                        {% endif %}
+
+<!-- Check if user views self profile -->
+                        {% if is_self_profile %}
+                            <div class="h1">Self profile</div>
+                        {% else %}
+                            <div class="h1">Different profile</div>
+                        {% endif %}
+<!-- End of demonstrations -->
+{% endcomment %}
+                        {% if profile_picture %}
+                            <img src="{{ profile_picture.url }}" width="225" height="225" class="rounded-circle">
+                        {% else %}
+                            <img src="{% static 'images/user.jpg' %}" width="225" height="225" class="rounded-circle">
+                        {% endif %}
+
+                    </div>
+                    <div class="text-center mt-3">
+
+                            {% if profession %}
+                                <span class="bg-primary p-1 px-3 rounded text-white">{{ profession }}</span>
+                            {% else %}
+                                <span class="bg-primary p-1 px-3 rounded text-white">{% trans "New Teacher" %}</span>
+                            {% endif %}
+
+                            <h3 class="mt-2 mb-0">{{ full_name }}</h3>
+
+                        <div class="px-4 mt-1">
+                            <ul class="social media col-md-7 nav navbar navbar-left d-flex p-2 d-inline-flex fa-1x">
+                                <a class="bg-blue p-2 px-3 rounded text-white">
+                                    <span> <i class="fa fa-file"></i> </span>{{ uploads }} {% trans "uploads" %}</a>
+                                <a class="bg-gray-dark p-2 px-3 rounded text-white">
+                                    <span>
+                                        <i class="fa fa-download">
+                                        </i> </span> {{ downloads }} {% trans "downloads" %} </a>
+                                <a class="bg-red p-2 px-3 rounded text-white">
+                                    <span>
+                                        <i class="fa fa-heart"></i>
+                                    </span>{{ likes }} {% trans "likes" %} </a>
+                                <a class="bg-purple p-2 px-3 rounded text-white">
+                                    <span>
+                                        <i class="fa fa-user"></i>
+                                    </span>{{ no_of_followers }} {% trans "followers" %}</a>
+                            </ul>
+                        </div>
+                        <div class="px-4 mt-1">
+                            <ul class="social media col-3 nav navbar navbar-left d-flex d-inline-flex fa-1x">
+                                <!-- Facebook -->
+                                {% if facebook_link %}
+                                <a style="color: #3b5998;" href="{{ facebook_link }}" role="button">
+                                    <i class="fab fa-facebook-f fa-lg"></i>
+                                </a>
+                                {% endif %}
+
+                                <!-- Twitter -->
+                                {% if twitter_link %}
+                                <a style="color: #55acee;" href="{{ twitter_link }}" role="button"><i
+                                        class="fab fa-twitter fa-lg"></i></a>
+                                {% endif %}
+
+
+                                <!-- Instagram -->
+                                {% if instagram_link %}
+                                <a style="color: #ac2bac;" href="{{ instagram_link }}" role="button">
+                                    <i class="fab fa-instagram fa-lg"></i>
+                                </a>
+                                {% endif %}
+
+                                <!-- LinkedIn -->
+                                {% if linkedin_link %}
+                                <a style="color: #0e76a8" href="{{ linkedin_link }}" role="button">
+                                    <i class="fab fa-linkedin fa-lg"></i>
+                                </a>
+                                {% endif %}
+
+                            </ul>
+
+                            {% if self_description %}
+                                <p class="fonts">{{ self_description }}</p>
+                            {% endif %}
+
+
+                        </div>
+
+                        <div class="buttons fa-5x">
+                            {% if user.pk %}
+                                {% if is_self_profile %}
+                                    <a class="btn btn-primary px-4 ms-3" href="{% url 'edit' %}">{% trans "Edit Profile" %}</a>
+                                {% else %}
+                                    <form method="get" action="{% url 'group-invite-user' user.pk %}" target="_blank">
+                                        <button class="btn btn-primary px-4 ms-3" type="submit">{% trans "Invite" %}</button>
+                                    </form>
+                                {% endif %}
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% if publications %}
+    <div class="container mt-4">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-12">
+                <div class="card p-3 py-4"
+                     style="border: 2px solid #E8F2FF; box-shadow: 0 8px 17px 0 #E8F2FF, 0 6px 20px 0 rgba(0,0,0,0.19)">
+                    <span class="badge badge-lg badge-pill badge-secondary">
+                        <h2>{% trans "Top Uploads" %}</h2>
+                    </span> <br>
+                    <section class="slice slice-sm" data-delimiter="1">
+                        <div class="container">
+                            <div class="row cols-xs-space cols-sm-space cols-md-space">
+                                {% for publication in publications %}
+                                <div class="col-lg-4">
+                                    <div class="card">
+                                        {% if publication.photo %}
+                                        <img src="{{publication.photo.url}}" class="card-img-top" height="225vw">
+                                        {% else %}
+                                        <img src="{% static 'images/basic.jpg' %}" class="card-img-top" height="225vw">
+                                        {% endif %}
+                                        <div class="card-body text-center">
+                                            <a href="{% url 'view-profile' publication.author_pk %}"><small
+                                                    class="text-muted">{{ publication.author_name }}</small></a>
+                                            <h3 class="heading h5 mb-1">
+                                                <span class="d-block"> {{ publication.title }} </span>
+                                            </h3>
+                                            <span class="badge badge-lg badge-pill badge-secondary text-uppercase">{{ publication.subject }} </span>
+                                            <span class="badge badge-lg badge-pill badge-secondary text-uppercase">Grade {{ publication.student_year }}</span>
+                                            <span class="badge badge-lg badge-pill badge-secondary text-uppercase">{{ publication.language }}</span>
+                                            <br>
+                                            <p class="mt-2">{{ publication.short_description }}</p>
+                                            <div class="btn-group btn-action-label" role="group" aria-label="Like">
+                                                <a href="#" class="btn btn-sm btn-outline-danger btn-label">{{ publication.likes }}</a>
+                                                <button type="button" class="btn btn-sm btn-danger btn-action">
+                                                    <i class="fas fa-heart"></i>
+                                                </button>
+                                            </div>
+                                            <a href="{% url 'view-publication' publication.pk %}" target="_blank"
+                                               class="btn btn-sm btn-primary">{% trans "View Material" %}</a> <br> <br>
+                                        </div>
+                                    </div>
+                                    <br>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </section>
+                </div>
+              </section>
+           </div>
+          </div>
+      </div>
+    </div> <br>
+{% endif %}
+
+
+    <div class="container mt-4 mb-3">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-12">
+                <div class="card p-4 py-4"
+                     style="border: 2px solid #E8F2FF; box-shadow: 0 8px 17px 0 #E8F2FF, 0 6px 20px 0 rgba(0,0,0,0.19)">
+                    {% if not is_self_profile %}
+                        <span class="badge badge-lg badge-pill badge-secondary">
+                            <h2>{% trans "Write your recommendation!" %}</h2>
+                        </span> <br>
+
+                        <div>
+                            <form action="{% url 'add-profile-recommendation' profile_pk %}" method="post">
+                                {% csrf_token %}
+                                {{ form.as_p }}
+                                <button type="submit" class="btn btn-primary btn-block">{% trans "Recommend this teacher!" %}</button>
+                            </form>
+                        </div>
+                    <br><br>
+                    {% endif %}
+
+                    <span class="badge badge-lg badge-pill badge-secondary"><h2>{% trans "Recommendations" %}</h2></span> <br>
+                    {% for recommendation in recommendations %}
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <div class="flex-start">
+                                <div class="w-100">
+                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                        <h6 class="text-primary fw-bold mb-1">
+                                            {{ recommendation.author }}
+                                            <span class="text-dark ms-2">{{ recommendation.text }}</span>
+                                        </h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div> <br>
+</main>
+{% else %}
+<main class="main">
+    <div class="container d-flex align-items-center no-padding">
+        <div class="col">
+            <div class="row justify-content-center">
+                <div class="col-lg-4">
+                    <div class="card bg-primary text-white"
+                         style="box-shadow: 0 8px 17px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)">
+                        <div class="card-body">
+                            <span class="clearfix"></span>
+                            <img src="{% static 'images/logo.png' %}" style="width: 100px;">
+                            <h4 class="heading h3 text-white pt-3 pb-5">{% trans "Please log in to view your profile" %}<br></h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main> <br>
+{% endif %}
+{% endblock %}

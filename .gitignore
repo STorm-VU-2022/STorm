@@ -1,0 +1,16 @@
+*.bak
+*.dia~
+*.dia~
+src/Back-end/venv/
+src/Back-end/mysite/venv
+src/Back-end/.idea/
+src/Back-end/mysite/mysql.conf
+**/__pycache__
+__pycache__/
+src/Back-end/mysite/**/__pycache__
+*.pyc
+*.dia~
+/src/Back-end/.idea/
+.idea/
+src/Back-end/mysite/.idea/misc.xml
+src/Back-end/mysite/.idea/mysite.iml

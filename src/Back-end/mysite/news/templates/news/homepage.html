@@ -1,0 +1,199 @@
+{% extends 'home_base.html' %}
+{% load static %}
+{% block title %}
+    Home
+{% endblock %}
+{% load i18n %}
+{% block contents %}
+
+
+<main class="main">
+    <!-- Front image/desc start -->
+    <section class="spotlight bg-cover bg-size--cover"
+             style="background-image: url({% static 'images/stormtest.jpg' %})">
+        <span class="mask bg-primary alpha-4"></span>
+        <div class="spotlight-holder py-sm pt-lg-lg">
+            <div class="container d-flex align-items-center">
+                <div class="row cols-xs-space cols-sm-space cols-md-space align-items-center justify-content-around">
+                    <div class="col-lg-5 text-center">
+                        <h2 class="heading h1 text-white strong-400">
+                            {% trans "Want to find some materials for your lessons? Yes you do!" %} <!-- Change later -->
+                        </h2>
+                        <p class="lead text-white mt-4">
+                            {% trans "STorm lets you easily and intuitively find and share new learning materials with other teachers!" %}
+                            <!-- Change later -->
+                        </p>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="position-relative">
+                            <img src="{% static 'images/logo.png' %}" class="img-center img-fluid rounded">
+                            <!-- temporary image, replace with screenshot later -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> <!-- Front image/desc end -->
+
+    <section class="slice slice-lg" data-delimiter="1">
+        <div class="container">
+            <div class="row-wrapper">
+                <div class="row cols-xs-space cols-sm-space cols-md-space">
+                    <div class="col-lg-4">
+                        <div class="">
+                            <div class="icon text-primary mb-3">
+                                <i class="fas fa-book"></i>
+                            </div>
+                            <h5 class="heading h5">{% trans "Find Content for Lessons" %}</h5>
+                            <p>{% trans "It has never been easier, enough endless searching for new quizzes, presentations, tasks or tests, everything is here in one place." %}</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="">
+                            <div class="icon text-primary mb-3">
+                                <i class="fas fa-thumbs-up"></i>
+                            </div>
+                            <h5 class="heading h5">{% trans "Help Your Career" %}</h5>
+                            <p>{% trans "If you are a new teacher, improve your CV by uploading your own created learning materials and getting ratings and recommendations from other teachers." %}</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="">
+                            <div class="icon text-primary mb-3">
+                                <i class="fa fa-check"></i>
+                            </div>
+                            <h5 class="heading h5">{% trans "Completely Free" %}</h5>
+                            <p>{% trans "The system is developed with no intentions of monetization and our team focuses heavily on listening to the needs and requests of teachers utilizing our system." %}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="slice slice-lg" data-delimiter="1">
+        <div class="container">
+            <div class="row cols-xs-space cols-sm-space align-items-center">
+                <div class="col-md-6">
+                    <img src="{% static 'images/prv/img-1-1000x900.jpg' %}" class="img-center img-fluid rounded z-depth-3">
+                </div>
+                <div class="col-md-6 col-lg-5 ml-lg-auto">
+                    <div class="pr-md-4">
+                        <h3 class="heading h3">
+                            {% trans "Represent Yourself" %}
+                        </h3>
+                        <p class="lead text-gray mt-4">{% trans "We offer seemless profile customization to best showcase yourself to the public, including ability to easily link to your social media and linkedin profiles." %}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="slice slice-lg" data-delimiter="1">
+        <div class="container">
+            <div class="mb-md text-center">
+                <h3 class="heading h3">{% trans "Active Community of Teachers" %}</h3>
+                <div class="fluid-paragraph text-center mt-4">
+                    <p class="lead lh-180">{% trans "With some of the best learning content creators!" %}</p>
+                </div>
+            </div>
+            <div class="row cols-xs-space cols-sm-space cols-md-space">
+<!--                Cards with top teachers start here -->
+                {% for teacher in teachers %}
+                <div class="col-lg-4">
+                    <div class="card">
+                        {% if teacher.profile_picture %}
+                            <img src="/media/{{ teacher.profile_picture }}" class="card-img-top" height="275vw" onerror="this.src='{% static 'images/basic.jpg' %}">
+                        {% else %}
+                            <img src="{% static 'images/basic.jpg' %}" class="card-img-top" height="275vw" onerror="this.src='{% static 'images/user.jpg' %}'">
+                        {% endif %}
+                        <div class="card-body text-center">
+                            <h3 class="heading h5 mb-1">
+                                <span class="d-block">{{ teacher.full_name }}</span>
+                                {% if teacher.profession %}
+                                    <small class="text-muted">{{ teacher.profession }}</small>
+                                {% else %}
+                                    <small class="text-muted">{%trans "New Teacher" %}</small>
+                                {% endif %}
+                            </h3>
+                            {% if teacher.self_description %}
+                                <p class="mt-2">{{ teacher.self_description|truncatewords:12 }}</p>
+                            {% else %}
+                                </br></br>
+                            {% endif %}
+                            <a  href="{% url 'view-profile' teacher.pk %}" target="_blank" class="btn btn-sm btn-primary">{% trans "View Profile" %}</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+<!--                Cards with top teachers end here -->
+            </div>
+        </div>
+    </section>
+
+
+    <section class="slice slice-xl" data-delimiter="1">
+        <div class="container">
+            <div class="row cols-xs-space cols-sm-space align-items-center">
+                <div class="col-md-6 order-md-2 ml-lg-auto">
+                    <img src="{% static 'images/prv/img-2-1000x900.jpg' %}" class="img-center img-fluid rounded z-depth-3">
+                </div>
+                <div class="col-md-6 col-lg-5 order-md-1">
+                    <div class="pr-md-4">
+                        <h3 class="heading h3">
+                            {% trans "Easy and Intuitive Material Search" %}
+                        </h3>
+                        <p class="lead text-gray mt-4">{% trans "With the centralization of learning content sharing in one place, new filtering and search systems finding new materials has never been easier. We strive to provide the best experience for teachers." %}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="slice slice-lg" data-delimiter="1">
+        <div class="container">
+            <div class="mb-md text-center">
+                <h3 class="heading h3">{% trans "Featured Materials"%}</h3>
+            </div>
+            <div class="row cols-xs-space cols-sm-space cols-md-space">
+
+                <!-- Top materials start here -->
+                {% for publication in publications %}
+                <div class="col-lg-4">
+                    <div class="card">
+<!--                        <img src="../assets/images/basic.jpg" class="card-img-top" height="225vw" onerror="this.src='{% static 'images/basic.jpg' %}'">-->
+                        {% if publication.photo %}
+                            <img src="/media/{{ publication.photo }}" class="card-img-top" height="275vw" onerror="this.src='{% static 'images/basic.jpg' %}'">
+                        {% else %}
+                            <img src="{% static 'images/basic.jpg' %}" class="card-img-top" height="275vw" onerror="this.src='{% static 'images/user.jpg' %}'">
+                        {% endif %}
+                        <div class="card-body text-center">
+                            <a href="url"><small class="text-muted">{{ publication.author }}</small></a>
+                            <h3 class="heading h5 mb-1">
+                                <span class="d-block">{{ publication.title }}</span>
+                            </h3>
+                            <span class="badge badge-lg badge-pill badge-secondary text-uppercase">{{ publication.subject }}</span>
+                            <span class="badge badge-lg badge-pill badge-secondary text-uppercase">{% trans "Grade" %} {{ publication.student_year }}</span>
+                            <span class="badge badge-lg badge-pill badge-secondary text-uppercase">{{ publication.language }}</span>
+                            <br>
+                            <p class="mt-2">{{ publication.short_description }}</p>
+                            <div class="btn-group btn-action-label" role="group" aria-label="Like">
+                                <a href="#" class="btn btn-sm btn-outline-danger btn-label">{{ publication.likes }}</a>
+                                <button type="button" class="btn btn-sm btn-danger btn-action">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                            </div>
+                            <a  href="{% url 'view-publication' publication.pk %}" target="_blank"
+                                class="btn btn-sm btn-primary">{% trans "View Material" %}</a> <br> <br>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+                {% endfor %}
+                <!-- Top materials end here -->
+    </section>
+</main>
+
+{% endblock %}

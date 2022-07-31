@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Group Search{% endblock %}
+{% load i18n %}
+{% block contents %}
+
+<style>
+      .cards {
+        transition: transform 0.2s ease;
+        box-shadow: 0 4px 6px 0 rgba(22, 22, 26, 0.18);
+        border-radius: 0;
+        border: 0;
+        margin-bottom: 1.5em;
+      }
+      .cards:hover {
+        transform: scale(1.1);
+      }
+</style>
+
+<div class="col-md-12">
+    <div class="card p-3 py-4"
+         style="border: 2px solid #E8F2FF; box-shadow: 0 8px 17px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)">
+        <span class="badge badge-lg badge-pill badge-secondary mb-4"><h1>{% trans "Group Search" %}</h1></span>
+        <form method="post">
+            <div class="input-group mb-3">
+                {% csrf_token %}
+                <input type="search" class="form-control" placeholder={% trans "Group Name" %} aria-label={% trans "Group Name" %}
+                       aria-describedby="basic-addon2" name="search_keywords" value="{{ search_keywords }}">
+                <!--            Start search button-->
+                <div class="input-group-append">
+                    <button type="submit" class="btn btn-secondary btn-animated btn-animated-y">
+                        <span class="btn-inner--hidden">{% trans "Search" %}</span>
+                        <span class="btn-inner--visible"><i class="fas fa-search"></i></span>
+                    </button>
+                </div>
+                <!--            End search button-->
+                <button type="submit" class="btn btn-tertiary btn-block mt-3">{% trans "Search" %}</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<main class="main"><br><br>
+    <div class="container mt-2">
+        <div class="row d-flex justify-content-center">
+            <div class="shadow-lg col-lg">
+                <div class="card p-3 py-4"
+                     style="border: 2px solid #E8F2FF; box-shadow: 0 8px 17px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)">
+                    <span class="badge badge-lg badge-pill badge-secondary mb-4">
+                        <h1>{% trans "Groups Found" %}</h1>
+                    </span>
+                    <section class="slice slice-lg" data-delimiter="1">
+                        <div class="container">
+                            <div class="row cols-xs-space cols-sm-space cols-md-space">
+                                {% for group in groups %}
+                                <div class="col-lg-4">
+                                    <div class="cards">
+                                        {% if group.photo %}
+                                            <img src="{{ group.photo.url }}" width="225" height="275vw"
+                                             onerror="this.src='{% static 'images/group.jpg' %}'"
+                                             class="card-img-top">
+                                        {% else %}
+                                            <img src="../assets/images/basic.jpg" class="card-img-top" height="275vw"
+                                             onerror="this.src='{% static 'images/group.jpg' %}'">
+                                        {% endif %}
+                                        <div class="card-body text-center">
+                                            <br>
+                                            <h3 class="heading h5 mb-1">
+                                                <span class="d-block">{{ group.name }}</span></h3>
+                                            {% if short_description %}
+                                                <p class="mt-2">{{ group.short_description }}</p>
+                                            {% else %}
+                                                <p class="mt-2">{{ group.description|truncatewords:12 }}</p>
+                                            {% endif %}
+                                            <a href="{% url 'profile-group' group.pk %}" target="_blank"
+                                               class="btn btn-sm btn-primary">{% trans "View Group" %}</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br> <br>
+</main>
+{% endblock %}

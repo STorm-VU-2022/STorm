@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="subjects">
+        <item>Mathematics</item>
+        <item>Geography</item>
+        <item>Biology</item>
+        <item>Chemistry</item>
+        <item>Physics</item>
+        <item>Lithuanian</item>
+        <item>Russian</item>
+        <item>English</item>
+        <item>German</item>
+        <item>French</item>
+        <item>Latin</item>
+        <item>Literature</item>
+        <item>History</item>
+        <item>Informatics</item>
+        <item>Politics</item>
+        <item>Economics</item>
+        <item>Philosophy</item>
+        <item>Culinary</item>
+        <item>Crafts</item>
+        <item>Theology</item>
+        <item>Ethics</item>
+        <item>Art</item>
+        <item>Dance</item>
+        <item>Other</item>
+    </string-array>
+</resources>

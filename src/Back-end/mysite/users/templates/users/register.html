@@ -1,0 +1,35 @@
+{% extends 'title_base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block title %}
+Sign-In
+{% endblock %}
+{% load i18n %}
+
+{% block contents %}
+<main class="main">
+    <div class="container d-flex align-items-center no-padding">
+        <div class="col">
+            <div class="row justify-content-center">
+                <div class="col-lg-4">
+                    <div class="card bg-primary text-white"
+                         style="box-shadow: 0 8px 17px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)">
+                        <div class="card-body">
+                            <span class="clearfix"></span>
+                            <img src="{% static 'images/logo.png' %}" style="width: 100px;">
+                            <h4 class="heading h3 text-white pt-3 pb-5">{% trans "Welcome!" %}<br>
+                                {% trans "Create your account." %}</h4>
+                            <form method="post">
+                                {% csrf_token %}
+                                {{form|crispy}}
+                                <br>
+                                <button type="submit" class="btn btn-block btn-lg bg-white mt-4">{% trans "Sign up" %}</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main> <br>
+{% endblock %}

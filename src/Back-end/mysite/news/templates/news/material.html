@@ -1,0 +1,189 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Material{% endblock %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+
+{% block contents %}
+<main class="main">
+    <div class="container mt-1">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-12">
+                <div class="card p-3 py-4" style="border: 2px solid #E8F2FF; box-shadow: 0 8px 17px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)">
+                        <span class="badge badge-lg badge-pill badge-secondary">
+                            <h1>{{ publication.title }}</h1>
+                        </span> <br>
+                    {% if commented_successfully %}
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <strong>Comment posted successfully</strong>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-4">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-5">
+                <div class="card p-4" style="border: 2px solid #E8F2FF; box-shadow: 0 8px 17px 0 #E8F2FF, 0 6px 20px 0 rgba(0,0,0,0.19)">
+                        <span class="badge badge-lg badge-pill badge-secondary mb-4">
+                            <h2>{% trans "Material Information" %}</h2>
+                        </span>
+                    <div class="container">
+                        <div class="form-group text-left">
+                            <div class="btn-group btn-action-label" role="group" aria-label="Like">
+                                <button type="button" class="btn btn-sm btn-primary btn-action">
+                                    <i class="fas fa-book"></i>
+                                    <span>{% trans "Subject" %}</span>
+                                </button>
+                                <a class="btn btn-sm btn-outline-primary btn-label">{{ publication.subject.name }}</a>
+                            </div>
+                            <br> <br>
+                            <div class="btn-group btn-action-label" role="group" aria-label="Like">
+                                <button type="button" class="btn btn-sm btn-primary btn-action">
+                                    <i class="fas fa-user"></i>
+                                    <span>{% trans "Grade" %}</span>
+                                </button>
+                                <a class="btn btn-sm btn-outline-primary btn-label">{{ publication.student_year }}</a>
+                            </div>
+                            <br> <br>
+                            <div class="btn-group btn-action-label" role="group" aria-label="Like">
+                                <button type="button" class="btn btn-sm btn-primary btn-action">
+                                    <i class="fas fa-language"></i>
+                                    <span>{% trans "Language" %}</span>
+                                </button>
+                                <a class="btn btn-sm btn-outline-primary btn-label">{{ publication.language }}</a>
+                            </div>
+                            <br> <br>
+                            <div class="btn-group btn-action-label" role="group" aria-label="Like">
+                                <button type="button" class="btn btn-sm btn-tertiary btn-action">
+                                    <i class="fas fa-address-card"></i>
+                                    <span>{% trans "Author" %}</span>
+                                </button>
+                                {% if publication.is_public %}
+                                    <a class="btn btn-sm btn-outline-tertiary btn-label">{{ publication.creator_id.full_name }}</a>
+                                {% else %}
+                                    <a class="btn btn-sm btn-outline-tertiary btn-label">Anonymous</a>
+                                {% endif %}
+                            </div>
+                            <br> <br>
+                            <form method="post" action="{% url 'like-publication' publication.pk %}">
+                                {% csrf_token %}
+                                <div class="btn-group btn-action-label" role="group" aria-label="Like">
+                                    <button type="submit" class="btn btn-sm btn-danger btn-action">
+                                        <i class="fas fa-heart"></i>
+                                        {% if user.is_authenticated %}
+                                        <span>{% trans "Click to Like!" %}</span>
+                                        {% endif %}
+                                    </button>
+                                    <a class="btn btn-sm btn-outline-danger btn-label">{{ likes }}</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-7">
+                <div class="card p-4" style="border: 2px solid #E8F2FF; box-shadow: 0 8px 17px 0 #E8F2FF, 0 6px 20px 0 rgba(0,0,0,0.19)">
+                        <span class="badge badge-lg badge-pill badge-secondary mb-4">
+                            <h2>{% trans "Description" %}</h2>
+                        </span>
+                    <div class="container">
+                        <div class="form-group">
+                            {% if publication.description %}
+                            <textarea class="form-control textarea-autosize" readonly>{{ publication.description }}</textarea>
+                            {% else %}
+                            <textarea class="form-control textarea-autosize" disabled
+                                      rows="1" maxlength="250">{{ publication.short_description }}</textarea>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% if publication.media %}
+    <div class="container mt-4 mb-5">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-12">
+                <div class="card p-3 py-4" style="border: 2px solid #E8F2FF; box-shadow: 0 8px 17px 0 #E8F2FF, 0 6px 20px 0 rgba(0,0,0,0.19)">
+                    <div class="col-lg-13">
+                        {{publication.media|cut:"publication_materials"}}
+                        <form method="post" action="{% url 'download-publication-materials' publication.pk %}">
+                            {% csrf_token %}
+                            {% comment %}
+                                <button type="submit" class="btn btn-block btn-primary" target="_blank">
+                                    <a class="h2 text-white" download>Download Material</a>
+                                </button>
+                                </br>
+                            {% endcomment %}
+                            <button type="button" class="btn btn-block btn-primary"
+                                    onclick="window.open('{% url 'download-publication-materials' publication.pk %}'); return true;"
+                                    target="_blank"
+                            >
+                            <a class="h2 text-white" href="{{publication.media.url}}"
+                               target="_blank"
+                               onclick="window.open('{% url 'download-publication-materials' publication.pk %}'); return true;">{% trans "Download Material" %}</a>
+                        </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div> <br>
+    {% else %}
+    <br>
+    {% endif %}
+    <div class="container mt-4 mb-5">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-12">
+                <div class="card p-4" style="border: 2px solid #E8F2FF; box-shadow: 0 8px 17px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)">
+<!--                Commenting form starts here    -->
+                    {% if user.is_authenticated %}
+                        <span class="badge badge-lg badge-pill badge-secondary mb-4">
+                            <h2>Leave Your Commentary</h2>
+                        </span>
+                        <form method="post">
+                            {% csrf_token %}
+                            <div class="form-group">
+                              {{ form.comment }}
+                            </div>
+                            <button type="submit" class="btn btn-block btn-primary">
+                                <p class="h2 text-white">{% trans "Submit" %}</p>
+                            </button>
+                        </form>
+                    {% endif %}
+<!--                All commentaries start here    -->
+                    <span class="badge badge-lg badge-pill badge-secondary mb-4 mt-4">
+                        <h2>Commentaries</h2>
+                    </span>
+                    {% for commentary in commentaries %}
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <div class="flex-start">
+                                    <div class="w-100">
+                                        <div class="d-flex justify-content-between align-items-center mb-3">
+                                            <h6 class="text-primary fw-bold mb-1">
+                                                {{ commentary.teacher }}
+                                                <span class="text-dark ms-2">{{ commentary.comment }}</span>
+                                            </h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+
+{% endblock %}

@@ -1,0 +1,9 @@
+18:10 - Meeting start
+	Noticed, that venv folder appeared in VCS. Decided to delete it.
+	
+18:16 - Decided to leave media folder as it is now (do nothing with it)
+18:18 - Discussing presentation for next week
+18:25 - Brainstorming tasks for next week
+18:40 - Collecting done documentation chunks, thinking about centralising them in main report
+18:58 - Meeting end
+

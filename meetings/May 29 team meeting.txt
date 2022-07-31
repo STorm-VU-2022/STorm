@@ -1,0 +1,16 @@
+19:00 - Meeting start, arguing about multilangual support
+	Decided: Postpone translating pages and make it the lowest priority. If we will have tie to implement this - we will do this.
+
+19:10 - Reconsidering project scope
+
+Noticed:
+	Missing constraint between a publication and methodic group.
+
+
+Agreed:
+	Create test cases which will be performed manually.
+	Use 'is_public' attribute of publication entity to show/hide author of publication.
+	Android has higher priority than Methodic Groups.
+	
+Decided:
+	This week we are going to focus on Android application and material filters.

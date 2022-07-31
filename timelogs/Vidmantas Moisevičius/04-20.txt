@@ -1,0 +1,1 @@
+15:00-17:00 17:20-20:20 Working on navigation between django templates and full integrations of media parts of the webstie

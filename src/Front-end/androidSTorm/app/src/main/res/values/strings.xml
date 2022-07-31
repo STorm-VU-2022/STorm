@@ -1,0 +1,154 @@
+<resources>
+    <string name="app_name">STorm Application</string>
+    <string name="app_name_short">STorm</string>
+    <string name="progress">progress</string>
+    <string name="question_placeholder">question placeholder</string>
+    <string name="answer">ANSWER</string>
+    <string name="finish">FINISH</string>
+    <string name="submit">SUBMIT</string>
+    <string name="quizapp">QuizApp</string>
+    <string name="congrats">Congrats!</string>
+    <string name="image">image</string>
+    <string name="result">Result</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="hint_username">Email</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome!"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="topic">Topic</string>
+    <string name="Topics">Topics</string>
+    <string name="category">category</string>
+    <string name="Categories">Categories</string>
+    <string name="play">Login</string>
+    <string name="built_by">Built by Team STorm</string>
+    <string name="name">Name</string>
+    <string name="host">HOST:</string>
+    <string name="no_internet">No Internet Connection. Please restart the application with internet connection</string>
+
+    <!--    Topic creator title page section   -->
+    <string name="lvl_creator_topicname">Topic name: </string>
+    <string name="lvl_creator_topicdesc">Topic description: </string>
+    <string name="lvl_creator_desc">Description (max 110 symbols)</string>
+    <string name="lvl_creator_difficulty">Topic difficulty: </string>
+    <string name="lvl_creator_continue">continue</string>
+    <string name="lvl_creator_topic_name_taken_toast">Topic Name is Already Taken</string>
+    <string name="lvl_creator_no_topic_name_selected_toast">No Topic Name Selected</string>
+    <string name="lvl_creator_no_topic_desc_selected_toast">No Topic Description Selected</string>
+    <!--    Topic creator section   -->
+    <string name="lvl_creator_title">Topic Creator</string>
+    <string name="lvl_creator_prev_question">Previous Question</string>
+    <string name="lvl_creator_next_question">Next Question</string>
+    <string name="lvl_creator_update_question">Update Question</string>
+    <string name="lvl_creator_new_question">New question</string>
+    <string name="lvl_creator_answer_element">Answer: </string>
+    <string name="lvl_creator_answer_overloaded">Answer %1$d: </string>
+    <string name="lvl_creator_question_overloaded">Question %1$d: </string>
+    <string name="lvl_creator_answer_prompt">Input your answer option</string>
+    <string name="lvl_creator_question_prompt">Input your question</string>
+    <string name="lvl_creator_answernum_prompt">Select correct answer\'s number: </string>
+    <string name="lvl_creator_enter_name_of_topic">Name (max 35 symbols)</string>
+    <string-array name="lvl_creator_correct_answers">
+        <item>-</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+
+    <string-array name="lvl_creator_spinner">
+        <item>Easy</item>
+        <item>Medium</item>
+        <item>Hard</item>
+    </string-array>
+
+    <string-array name="topic_spinner">
+        <item>SortBy</item>
+        <item>Name</item>
+        <item>Rating</item>
+        <item>Difficulty</item>
+    </string-array>
+
+    <string name="lvl_creator_save_question">save question</string>
+    <string name="lvl_creator_upload_topic_to_the_server">upload topic</string>
+    <string name="lvl_creator_enter_your_question">Input your question</string>
+    <string name="lvl_creator_question_saved_toast">Question saved</string>
+    <string name="lvl_creator_pls_create_question_first_toast">Please create at least one question first</string>
+    <string name="lvl_creator_creating_new_question_toast">Creating a new question</string>
+    <string name="lvl_creator_you_cannot_modify_toast">You cannot modify question as it is not saved yet</string>
+    <string name="lvl_creator_current_question_toast">Current question: </string>
+    <string name="lvl_creator_question_cannot_be_empty_toast">Question cannot be empty</string>
+    <string name="lvl_creator_option_cannot_be_empty_toast">Answer option %1$d cannot be empty</string>
+    <string name="lvl_creator_number_of_correct_answer_mustbe_toast">Number of the correct answer must be 1, 2, 3 or 4 </string>
+    <string name="lvl_creator_topic_uploaded_toast">Topic uploaded successfully</string>
+    <string name="lvl_creator_topic_upload_failed_toast">Topic upload failed, please try again</string>
+    <string name="lvl_creator_questions_uploaded_toast">Questions uploaded successfully</string>
+    <string name="lvl_creator_question_upload_failed_toast">Question upload failed, please try again</string>
+    <!--    Registration section   -->
+    <string name="reg_activity_create_acc_prompt">Please create an account</string>
+    <string name="reg_activity_hint_repeat_password">Repeat Password</string>
+    <string name="reg_activity_register">Register</string>
+    <string name="reg_activity_no_email_selected_toast">No Email Selected</string>
+    <string name="reg_activity_no_password_repeat_selected_toast">No Password Repeat Selected</string>
+    <string name="reg_activity_glad_to_have_you_overloaded_toast">Glad to have you %1$s</string>
+    <string name="reg_activity_reg_details_incorrect_toast">Registration details incorrect, please try again</string>
+    <!--    Main activity section   -->
+    <string name="main_activity_connect_acc_prompt">Please create an account</string>
+    <string name="main_activity_dont_have_account">Don\'t have an account?</string>
+    <string name="main_activity_no_username_selected_toast">No Email Selected</string>
+    <string name="main_activity_no_password_selected_toast">No Password Selected</string>
+    <string name="main_activity_login_details_incorrect_toast">Login details incorrect, please try again</string>
+    <string name="main_activity_welcome_overloaded_toast">Welcome %1$s</string>
+    <!--    Main menu activity section   -->
+    <string name="mainmenu_activity_title">Main Menu</string>
+    <string name="mainmenu_activity_shop">Shop</string>
+    <string name="mainmenu_activity_profile">Profile</string>
+    <string name="mainmenu_activity_exit">Exit</string>
+    <string name="mainmenu_activity_not_yet_implemented">Not yet implemented</string>
+    <string name="mainmenu_activity_retry">Retry</string>
+    <string name="mainmenu_activity_ClosingMindGameApp">Closing MindGameApp</string>
+    <string name="mainmenu_activity_ExitConfirmationQuestion">Are you sure you want to close this application?</string>
+    <string name="mainmenu_activity_Yes">Yes</string>
+    <string name="mainmenu_activity_No">No</string>
+    <!--    info activity section   -->
+    <string name="info_activity_easy">Easy</string>
+    <string name="info_activity_moderate">Moderate</string>
+    <string name="info_activity_hard">Hard</string>
+    <!--    Results activity section   -->
+    <string name="results_activity_your_score_overloaded">Your score is %1$d / %2$d </string>
+    <string name="results_activity_time_spent_overloaded">Time spent %1$d h %2$d min %3$d sec</string>
+    <string name="results_activity_pls_rate_quiz">Please rate this quiz!</string>
+    <string name="results_activity_thanks_for_rating">Thank you for rating!</string>
+    <string name="results_activity_coins_gained">coins earned</string>
+    <!--    Profile activity section   -->
+    <string name="profile_activity_title">Profile</string>
+    <string-array name="profile_activity_language_spinner">
+        <item>-</item>
+        <item>EN</item>
+        <item>RU</item>
+        <item>LT</item>
+    </string-array>
+    <!--    Shop activity section   -->
+    <string name="shop_activity_shop">Shop</string>
+    <string name="shop_activity_purchase">purchase</string>
+    <string name="shop_activity_select">select</string>
+    <string name="shop_activity_selected">"Selected "</string>
+    <string name="shop_activity_not_enough_coins">"Not enough coins to purchase "</string>
+    <string name="shop_activity_current_coins">Current coins:</string>
+    <string name="shop_activity_selected_host">"Selected host: "</string>
+
+    <string name="retry">Retry</string>
+    <string name="profile_activity_time_spent_playing">\Time Spent Playing: \</string>
+    <string name="profile_activity_correct_answers">\Correct Answers: \</string>
+    <string name="profile_activity_correct_answers_percentage">\Correct Answers Percentage: \</string>
+    <string name="profile_activity_longest_streak">\Longest Streak \</string>
+    <string name="profile_activity_correct_answers_average_game_time">\Average Game Time: \</string>
+    <string name="profile_activity_longest_streak_topic">\Longest Streak Topic: \</string>
+    <string name="profile_activity_topics_created">\Topics Created: \</string>
+    <string name="profile_activity_topics_rated">\Topics Rated: \</string>
+    <string name="profile_activity_topics_played">\Topics Played: \</string>
+</resources>

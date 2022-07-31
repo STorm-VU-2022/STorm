@@ -1,0 +1,183 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    Material Search
+{% endblock %}
+{% load i18n %}
+
+{% block contents %}
+<div class="col-md-12">
+    <div class="card p-3 py-4" style="border: 2px solid #E8F2FF; box-shadow: 0 8px 17px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)">
+        <span class="badge badge-lg badge-pill badge-secondary mb-4"><h1>{% trans "Material Search" %}</h1></span>
+        <form method="post" action="{% url 'browse-publications' %}">
+            {% csrf_token %}
+            <div class="input-group mb-3">
+            <input type="search" class="form-control" placeholder={% trans "Title" %} aria-label={% trans "Title" %}
+                   aria-describedby="basic-addon2" name="search_keywords">
+
+<!--            Start search button-->
+            <div class="input-group-append">
+                <button type="submit" class="btn btn-secondary btn-animated btn-animated-y">
+                    <span class="btn-inner--hidden">{% trans "Search" %}</span>
+                    <span class="btn-inner--visible"><i class="fas fa-search"></i></span>
+                </button>
+            </div>
+<!--            End search button-->
+
+            <div class="col-md-2">
+                <select class="selectpicker" title={% trans "Sort" %} data-live-search="true"
+                        data-live-search-placeholder="Search ..." name="search_sort">
+
+                    {% for option in sort_options %}
+                        {% if option.selected %}
+                            <option selected="selected">{{ option.name }}</option>
+                        {% else %}
+                            <option>{{ option.name }}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+
+        <div class="row mb-4">
+            <div class="col-md-3">
+                <select class="selectpicker" title={% trans "Subject" %} data-live-search="true"
+                        data-live-search-placeholder="{% trans "Search ..." %}" name="search_subject">
+                    {% for option in subjects %}
+                        {% if option.is_selected %}
+                            <option selected="selected">{{ option.name }}</option>
+                        {% else %}
+                            <option>{{ option.name }}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-md-3">
+                <select class="selectpicker" title={% trans "Grade" %} data-live-search="true"
+                        data-live-search-placeholder="{% trans "Search ..." %}" name="search_grade">
+                    {% for option in grades %}
+                        {% if option.is_selected %}
+                            <option selected="selected">{{ option.name }}</option>
+                        {% else %}
+                            <option>{{ option.name }}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-md-3">
+                <select class="selectpicker" title={% trans "Language" %} data-live-search="true"
+                        data-live-search-placeholder="{% trans "Search ..." %}" name="search_language">
+                    {% for option in languages %}
+                        {% if option.is_selected %}
+                            <option selected="selected">{{ option.name }}</option>
+                        {% else %}
+                            <option>{{ option.name }}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-md-3">
+                <select class="selectpicker" title={% trans "Group"%} data-live-search="true"
+                        data-live-search-placeholder="{% trans "Search ..." %}" name="search_group">
+                    {% for group in groups %}
+                        <option value="{{ group.pk }}">{{ group.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+<!--            Button for search -->
+            <button type="submit" class="btn btn-tertiary btn-block mb-3">{% trans "Search" %}</button>
+        </form>
+
+<!--        Button to clear filters -->
+        <a href="{% url 'browse-publications' %}" class="btn btn-sm btn-primary">{% trans "Clear Filters" %}</a>
+<!--        <br>-->
+    </div>
+</div>
+
+<style>
+      .cards {
+        transition: transform 0.2s ease;
+        box-shadow: 0 4px 6px 0 rgba(22, 22, 26, 0.18);
+        border-radius: 0;
+        border: 0;
+        margin-bottom: 1.5em;
+      }
+      .cards:hover {
+        transform: scale(1.1);
+      }
+</style>
+
+<main class="main"><br><br>
+    <div class="container mt-2">
+        <div class="row d-flex justify-content-center">
+            <div class="shadow-lg col-lg">
+                <div class="card p-3 py-4" style="border: 2px solid #E8F2FF; box-shadow: 0 8px 17px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)">
+                    <span class="badge badge-lg badge-pill badge-secondary"><h1>{% trans "Results" %}</h1></span>
+                    <section class="slice slice-lg" data-delimiter="1">
+                        <div class="container">
+                            <div class="row cols-xs-space cols-sm-space cols-md-space">
+                                {% for publication in publications %}
+                                <div class="col-lg-4">
+                                    <div class="cards" style="
+                                    transition: transform 0.2s ease;
+                                    box-shadow: 0 4px 6px 0 rgba(22, 22, 26, 0.18);
+                                    border-radius: 0;
+                                    border: 0;
+                                    margin-bottom: 1.5em;
+                                    hover:transform: scale(1.1)">
+                                        {% if publication.photo %}
+                                            <img src="{{publication.photo.url}}" class="card-img-top" height="225vw">
+                                        {% else %}
+                                            <img src="{% static 'images/basic.jpg' %}" class="card-img-top" height="225vw">
+                                        {% endif %}
+                                        <div class="card-body text-center">
+                                            <a href="{% url 'view-profile' publication.author_pk %}"><small class="text-muted">{{publication.author_name}}</small></a>
+                                            <h3 class="heading h5 mb-1">
+                                                <span class="d-block"> {{publication.title}} </span>
+                                            </h3>
+                                            <span class="badge badge-lg badge-pill badge-secondary text-uppercase">{{ publication.subject }} </span>
+                                            <span class="badge badge-lg badge-pill badge-secondary text-uppercase">{% trans "Grade" %} {{ publication.student_year }}</span>
+                                            <span class="badge badge-lg badge-pill badge-secondary text-uppercase">{{ publication.language }}</span>
+                                            <br>
+                                            <p class="mt-2">{{publication.short_description}}</p>
+                                            <div class="btn-group btn-action-label" role="group" aria-label="Like">
+                                                <a href="#" class="btn btn-sm btn-outline-danger btn-label">{{ publication.likes }}</a>
+                                                <button type="button" class="btn btn-sm btn-danger btn-action">
+                                                    <i class="fas fa-heart"></i>
+                                                </button>
+                                            </div>
+                                            <a href="{% url 'view-publication' publication.pk %}" target="_blank"
+                                               class="btn btn-sm btn-primary">{% trans "View Material" %}</a> <br> <br>
+                                        </div>
+                                    </div>
+                                    <br>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </section>
+                    <div class="pagination">
+                        <span class="step-links float-sm-right">
+                            {% if publications.has_previous %}
+                                <a href="?page=1">&laquo; {% trans "first" %}</a>
+                                <a href="?page={{ publications.previous_page_number }}">{% trans "previous" %}</a>
+                            {% endif %}
+                    
+                            <span class="current">
+                                {% trans Page %} {{ publications.number }} {% trans "of" %} {{ publications.paginator.num_pages }}.
+                            </span>
+                    
+                            {% if publications.has_next %}
+                                <a href="?page={{ publications.next_page_number }}">{% trans "next" %}</a>
+                                <a href="?page={{ publications.paginator.num_pages }}">{%trans "last" %} &raquo;</a>
+                            {% endif %}
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br> <br>
+</main>
+{% endblock %}

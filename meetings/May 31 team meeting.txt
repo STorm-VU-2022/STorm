@@ -1,0 +1,8 @@
+19:10 - Meeting start
+	Agreed: 
+		1) Add extra attribute to relation 'Recommends'
+		2) Change search button design in material search
+		3) Leave recommendation form at top of recommendations
+		4) Reduce Android application scope only to uploading file
+		5) Move material download to an endpoint
+			
